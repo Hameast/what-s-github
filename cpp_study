@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+
+int& larger(int& x, int& y) {
+	return (x > y) ? x : y;
+}
+
+int main() {
+	int a = 92;
+	int& ra = a;
+	//int& ra = 92; //error
+	const int& rr = 88;	//예외ㄷㄷ
+	//int& ra = b; //같은 이름으로 두개의 변수를 참조할 수는 없음
+
+	//ra = 12;
+
+
+
+	int* pi;
+	bool* pb;
+
+	cout << sizeof(pb);
+
+	cout << a << endl;
+	cout << ra << endl;
+	cout << &rr << endl;
+
+	cout << larger(a, ra) << endl;
+
+	return 0;
+}
