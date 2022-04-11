@@ -6,6 +6,7 @@ int& larger(int& x, int& y) {
 }
 
 int main() {
+/*
 	int a = 92;
 	int& ra = a;
 	//int& ra = 92; //error
@@ -26,6 +27,29 @@ int main() {
 	cout << &rr << endl;
 
 	cout << larger(a, ra) << endl;
+*/
+	int x = 1;
+	int** p;	// 포인터 생성
+	
+	p = new int* [5];	// 포인터를 5칸의 포인터 배열로 초기화
+	for (int i = 0; i < 5; i++)
+		p[i] = new int[5];	// 5칸의 포인터 배열에 다시 5칸의 int 배열 할당 -> 5*5 배열 생성 
+
+	int* sp = p[4];
+//	int* sp = p[0];
+	for (int k = 0; k < 5; k++)
+		for (int l = 0; l < 5; l++)
+			p[k][l] = x++;	// 5*5 배열에 값 삽입
+
+	cout << p[4][4] << endl;		// 25
+	cout << *(sp + 4) << endl;		// 25
+	cout << *(*(p + 4) + 4) << endl;	//25
+	cout << (*(p + 4))[4] << endl;		// 25
+
+	for (int m = 0; m < 5; m++)
+		delete[] p[m];
+	delete[] p;
+
 
 	return 0;
 }
